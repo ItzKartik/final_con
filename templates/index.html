@@ -538,6 +538,12 @@
         $('.spin').fadeOut();
     });
 </script>
+<style>
+    .form-c{
+        pointer-events: none;
+        opacity: .5;
+    }
+</style>
 <div data-elementor-type="wp-page" data-elementor-id="34" class="elementor elementor-34" data-elementor-settings="[]">
     <div class="elementor-section-wrap">
 
@@ -770,8 +776,9 @@
                             <div class="super-heading-title">
                                 <h1
                                     style="font-size:20px;color:#fd962c;font-weight:600;text-align:center;margin:5px 5px 5px 5px;">
-                                    All over India registration form<br>
-                                    <h4 style="text-align: center;">Multiple event participation is allowed.</h4>
+                                    <span style="color: red;">REGISTRATIONS ARE CLOSED</span>
+                                    <!-- All over India registration form<br> -->
+                                    <!-- <h4 style="text-align: center;">Multiple event participation is allowed.</h4> -->
                                 </h1>
                             </div>
                         </div>
@@ -5606,7 +5613,10 @@
     var fee = 0;
     var check_for_selected = 0;
     var csrf = $('input[name=csrfmiddlewaretoken]').val();
-    function create_order() {
+    function create_order(){
+        alert("Registrations are closed");
+    }
+    function create_order_for() {
         if ($('#name').val() == "") {
             alert("Fill the required fields to proceed")
         }else if ($('#mail').val() == "") {

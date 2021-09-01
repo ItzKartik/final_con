@@ -466,6 +466,10 @@
             outline: none !important;
             border: 2px solid #752715 !important;
         }
+        .form-c{
+            pointer-events: none;
+            opacity: .5;
+        }
     </style>
 </div>
 
@@ -700,7 +704,10 @@
             var contest_ids = [];
             var check_for_selected = 0;
             var csrf = $('input[name=csrfmiddlewaretoken]').val();
-            function create_order(e) {
+            function create_order(e){
+                alert("Registrations are closed");
+            }
+            function create_order_for(e) {
                 $('.form-check-input').each(function (i, obj) {
                     if ($(obj).is(":checked")) {
                         check_for_selected = 1;
