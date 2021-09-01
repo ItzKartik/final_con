@@ -40,13 +40,14 @@ def quiz_answers(request, user_id):
             if i != '':
                 q = models.quiz_question.objects.get(id=i[0])
                 models.quiz_an.objects.create(i_id=user, question=q,
-                                            answer_given=i[1], correct_answer=q.answer)
+                                              answer_given=i[1], correct_answer=q.answer)
         app = models.appiled_for.objects.get(i_id=user)
         app.uploaded = True
         app.save()
         return HttpResponse("success")
     except Exception as e:
         return HttpResponse("error")
+
 
 def send_mail(receiver_address, contests, name, url):
     contests = contests.split(',')
@@ -175,6 +176,7 @@ def create_an_order(request):
     else:
         return HttpResponse("Method Not Allowed")
 
+
 def register(request):
     try:
         if request.method == 'POST':
@@ -220,14 +222,17 @@ def manual_register():
                 line_count += 1
             else:
                 print(row[0])
-                mdl = models.users_data.objects.create(id=row[0],name=row[1], mail_id=row[2], phone_num=row[3])
+                mdl = models.users_data.objects.create(
+                    id=row[0], name=row[1], mail_id=row[2], phone_num=row[3])
                 contests = row[4].split(',')
                 for i in contests:
                     if i != '':
                         mdl_con = models.contests.objects.get(contest_name=i)
-                        models.appiled_for.objects.create(i_id=mdl, contest_mdl=mdl_con)
+                        models.appiled_for.objects.create(
+                            i_id=mdl, contest_mdl=mdl_con)
 
     print("Done")
+
 
 def uploads(request, user_id):
     if request.method == 'POST':
@@ -285,14 +290,14 @@ def quiz(request, user_id):
         con = models.contests.objects.get(contest_name="Quiz")
         m = models.appiled_for.objects.get(i_id=mdl, contest_mdl=con)
         if m.uploaded == True:
-            return HttpResponse("Winners list will be released on 2nd Sep")    
+            return HttpResponse("Winners list will be released on 2nd Sep")
         else:
             return render(request, 'quiz.html')
     except Exception as e:
         return HttpResponse("You are not registered for this event.")
 
 @csrf_exempt
-def declaring_page(request):
+def judging_page(request):
     if request.method == 'POST':
         contest_name = request.POST['contest_name']
         # contest_name = contest_name.replace('_', ' ')
@@ -303,7 +308,8 @@ def declaring_page(request):
         return HttpResponse(data, content_type='application/json')
     else:
         mdl = models.contests.objects.all()
-        return render(request, 'declaring_page.html', {'contests': mdl})
+        return render(request, 'judging_page.html', {'contests': mdl})
+
 
 def sloka(request):
     sl = models.sloka.objects.all()
