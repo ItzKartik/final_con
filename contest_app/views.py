@@ -277,6 +277,8 @@ def uploads(request, user_id):
             return HttpResponse('Please contact us some unknown error has occured. <br> Error : ' + e)
 
 
+
+
 def quiz_questions(request):
     qq = models.quiz_question.objects.all()
     data = serializers.serialize("json", qq)
@@ -295,6 +297,32 @@ def quiz(request, user_id):
             return render(request, 'quiz.html')
     except Exception as e:
         return HttpResponse("You are not registered for this event.")
+
+###### QUIZ SCORE FINDING
+def quiz_sheet_updation(hash, name, email, score):
+    client = gspread.authorize(credentials)
+    sheet = client.open("online").get_worksheet(1)
+    # https://docs.google.com/spreadsheets/d/1PZZa6C1sNrkxmytl5q4epRr0V9R7lqvdIIPR8NFMku4/edit?usp=sharing
+    sheet.append_row([hash, name, email, score])
+
+def find_score(ans_list):
+    score = 0
+    for i in ans_list:
+        question_mdl = models.quiz_question.objects.get(id=i.question.id)
+        if i.answer_given == question_mdl.answer:
+            score += 1
+    return score
+
+def match_answers(request):
+    quiz_contest = models.contests.objects.get(contest_name='Quiz')
+    participators = models.appiled_for.objects.filter(contest_mdl=quiz_contest)
+
+    for i in participators:
+        answers_list = models.quiz_an.objects.filter(i_id=i.i_id)
+        sc = find_score(answers_list)
+        quiz_sheet_updation(i.i_id.id, i.i_id.name, i.i_id.mail_id, sc)
+    return HttpResponse("Database Updated")
+###### QUIZ SCORE FINDING
 
 @csrf_exempt
 def judging_page(request):
