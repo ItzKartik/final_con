@@ -267,12 +267,13 @@ def uploads(request, user_id):
             return HttpResponse('Please contact us some unknown error has occured. <br> Error : ' + e)
     else:
         try:
-            m = models.users_data.objects.filter(id=user_id)
-            mdl = models.appiled_for.objects.filter(i_id=m[0])
-            context = {
-                "data": mdl
-            }
-            return render(request, 'upload_page.html', context)
+            return HttpResponse("Uploadings are closed")
+            # m = models.users_data.objects.filter(id=user_id)
+            # mdl = models.appiled_for.objects.filter(i_id=m[0])
+            # context = {
+            #     "data": mdl
+            # }
+            # return render(request, 'upload_page.html', context)
         except Exception as e:
             return HttpResponse('Please contact us some unknown error has occured. <br> Error : ' + e)
 
@@ -292,7 +293,7 @@ def quiz(request, user_id):
         con = models.contests.objects.get(contest_name="Quiz")
         m = models.appiled_for.objects.get(i_id=mdl, contest_mdl=con)
         if m.uploaded == True:
-            return HttpResponse("Winners list will be released on 2nd Sep")
+            return HttpResponse("Winners list will be released soon")
         else:
             return render(request, 'quiz.html')
     except Exception as e:
