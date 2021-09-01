@@ -572,12 +572,21 @@
                         });
                     }
 
+                    function check_for_same_ques_id(arr, id) {
+                        for (var i = 0; i < arr.length; i++) {
+                            if (arr[i][0] == id) {
+                                arr.splice(i, 1);
+                            }
+                        }
+                    }
+
                     function uncheck_other(ele) {
                         $('.form-check-input' + current_id).prop('checked', false);
                         $(ele + current_id).prop('checked', true);
                     
                         var_val = $(ele + current_id).val();
                         ques_id = $(ele + current_id).attr('data-pk');
+                        check_for_same_ques_id(answers, ques_id);
                         answers.push([ques_id, var_val]);
 
                         $.cookie('current_id', current_id+1, {expires: 365});
