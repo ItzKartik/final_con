@@ -406,7 +406,6 @@
             <!-- <h1 style="color: #FD962C;">Quiz Page</h1> -->
             <!-- <h5 style="color: red;">Alert: <span style="color: black;">Guidelines Should Be Followed Otherwise Your
                     Answers May Get Rejected</span></h5> -->
-                    {% if user.is_superuser %}
             <div class="col-md-12 mx-auto text-left">
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
                     integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
@@ -676,10 +675,6 @@
                     }
                 </style>
             </div>
-            {% else %}
-            
-                <h3 style="color: #FD962C; padding-top: 50px;">Quiz will start from tomorrow</h3>
-            {% endif %}
         </div>
     </div>
 </div>
