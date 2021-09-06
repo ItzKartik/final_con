@@ -1,0 +1,67 @@
+var _____WB$wombat$assign$function_____ = function(name) {return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name)) || self[name]; };
+if (!self.__WB_pmw) { self.__WB_pmw = function(obj) { this.__WB_source = obj; return this; } }
+{
+  let window = _____WB$wombat$assign$function_____("window");
+  let self = _____WB$wombat$assign$function_____("self");
+  let document = _____WB$wombat$assign$function_____("document");
+  let location = _____WB$wombat$assign$function_____("location");
+  let top = _____WB$wombat$assign$function_____("top");
+  let parent = _____WB$wombat$assign$function_____("parent");
+  let frames = _____WB$wombat$assign$function_____("frames");
+  let opener = _____WB$wombat$assign$function_____("opener");
+
+jQuery(function($){
+	$('body').on('click', '.loadmore', function() {
+ 
+		var button = $(this);
+		var data = {
+			'action': 'corporate_event_loadmore',
+			'page' : corporate_event_loadmore_params.current_page,
+		};
+ 
+		$.ajax({
+			url : corporate_event_loadmore_params.ajaxurl,
+			data : data,
+			type : 'POST',
+			beforeSend : function ( xhr ) {
+				button.text('Loading...');
+			},
+			success : function( data ) {
+				if( data ) { 
+					$( 'div.blog-list-block' ).append(data);
+					button.text( 'More Posts' );
+					corporate_event_loadmore_params.current_page++;
+ 
+					if ( corporate_event_loadmore_params.current_page == corporate_event_loadmore_params.max_page ) { 
+						button.remove();
+					}
+				} else {
+					button.remove();
+				}
+			}
+		});
+	});
+});
+
+}
+/*
+     FILE ARCHIVED ON 04:32:07 Jun 18, 2021 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:06:09 Aug 09, 2021.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  exclusion.robots: 0.198
+  captures_list: 434.678
+  esindex: 0.014
+  RedisCDXSource: 0.681
+  PetaboxLoader3.resolve: 46.751
+  load_resource: 76.352
+  exclusion.robots.policy: 0.184
+  CDXLines.iter: 19.32 (3)
+  LoadShardBlock: 411.055 (3)
+  PetaboxLoader3.datanode: 332.387 (4)
+*/

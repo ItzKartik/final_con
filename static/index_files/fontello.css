@@ -1,0 +1,100 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('/web/20210618043156im_/https://iiyc.co.in/wp-content/themes/corporate-event/font/fontello.eot?60711507');
+  src: url('/web/20210618043156im_/https://iiyc.co.in/wp-content/themes/corporate-event/font/fontello.eot?60711507#iefix') format('embedded-opentype'),
+       url('/web/20210618043156im_/https://iiyc.co.in/wp-content/themes/corporate-event/font/fontello.woff2?60711507') format('woff2'),
+       url('/web/20210618043156im_/https://iiyc.co.in/wp-content/themes/corporate-event/font/fontello.woff?60711507') format('woff'),
+       url('/web/20210618043156im_/https://iiyc.co.in/wp-content/themes/corporate-event/font/fontello.ttf?60711507') format('truetype'),
+       url('/web/20210618043156im_/https://iiyc.co.in/wp-content/themes/corporate-event/font/fontello.svg?60711507#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('/web/20210618043156im_/https://iiyc.co.in/wp-content/themes/corporate-event/font/fontello.svg?60711507#fontello') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-phone:before { content: '\e800'; } /* '' */
+.icon-bookmark:before { content: '\e801'; } /* '' */
+.icon-clock:before { content: '\e802'; } /* '' */
+.icon-home:before { content: '\e803'; } /* '' */
+.icon-globe:before { content: '\e804'; } /* '' */
+.icon-tag:before { content: '\e805'; } /* '' */
+.icon-location:before { content: '\e806'; } /* '' */
+.icon-calendar:before { content: '\e807'; } /* '' */
+.icon-twitter:before { content: '\f099'; } /* '' */
+.icon-facebook:before { content: '\f09a'; } /* '' */
+.icon-gplus:before { content: '\f0d5'; } /* '' */
+.icon-mail-alt:before { content: '\f0e0'; } /* '' */
+.icon-linkedin:before { content: '\f0e1'; } /* '' */
+.icon-angle-right:before { content: '\f105'; } /* '' */
+.icon-angle-down:before { content: '\f107'; } /* '' */
+.icon-quote-left:before { content: '\f10d'; } /* '' */
+.icon-youtube:before { content: '\f167'; } /* '' */
+.icon-instagram:before { content: '\f16d'; } /* '' */
+.icon-pinterest:before { content: '\f231'; } /* '' */
+.icon-calendar-check-o:before { content: '\f274'; } /* '' */
+.icon-handshake-o:before { content: '\f2b5'; } /* '' */
+.icon-user-o:before { content: '\f2c0'; } /* '' */
+/*
+     FILE ARCHIVED ON 04:31:56 Jun 18, 2021 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 08:12:21 Aug 09, 2021.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  exclusion.robots: 0.136
+  captures_list: 126.492
+  esindex: 0.01
+  RedisCDXSource: 14.248
+  PetaboxLoader3.resolve: 65.627
+  load_resource: 87.557
+  exclusion.robots.policy: 0.126
+  CDXLines.iter: 19.592 (3)
+  LoadShardBlock: 90.054 (3)
+  PetaboxLoader3.datanode: 97.433 (4)
+*/

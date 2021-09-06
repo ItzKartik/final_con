@@ -1,5 +1,6 @@
+s.sh
 ssh
 out.log
 error.log
 g.sh
-static
+static/uploads/
