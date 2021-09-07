@@ -106,7 +106,6 @@ def sheet_updation(hash, name, mail_id, phone_num, contests, order_id):
     sheet = client.open("online").sheet1
     sheet.append_row([hash, name, mail_id, phone_num, contests, order_id])
 
-
 @csrf_exempt
 def verify_payment(request):
     try:
@@ -338,6 +337,21 @@ def judging_page(request):
     else:
         mdl = models.contests.objects.all()
         return render(request, 'judging_page.html', {'contests': mdl})
+
+def users_updation(hash, name, email, number, contest):
+    client = gspread.authorize(credentials)
+    sheet = client.open("online").get_worksheet(2)
+    sheet.append_row([hash, name, email, number, contest])
+
+def update_users_sheet():
+    con = models.contests.objects.all()
+    for i in con:
+        m = models.appiled_for.objects.filter(contest_mdl=i)        
+        for l in m:
+            u = models.users_data.objects.get(id=l.i_id.id)
+            users_updation(u.id, u.name, u.mail_id, u.phone_num, i.contest_name)
+
+# update_users_sheet()
 
 def give_users(request, name):
     name = name.replace('_', ' ')

@@ -595,16 +595,16 @@
                     </style>
                     <script>
                         function fetch_users(con) {
-                            var con = con.split(' ').join('_')
+                            var con2 = con.split(' ').join('_')
                             $.ajax({
-                                url: "give_users/"+con+"/",
+                                url: "give_users/"+con2+"/",
                                 method: 'GET',
                                 success: function (data) {
                                     console.log(data)
                                     $('.certificate_con').hide();
                                     for(var i=0; i < data.length; i++){
                                         num = i+1;
-                                        $('.users').append(`<div class="user_name"><a download target="_blank" href="/static/certificates/`+data[i][0]+`_`+con+`">`+num+`) `+data[i][1]+`</a></div>`);
+                                        $('.users').append(`<div class="user_name"><a download target="_blank" href="/static/certificates/`+data[i][0]+`_`+con+`.png">`+num+`) `+data[i][1]+`</a></div>`);
                                     }
                                     $('.change_txt').html('Click your name to download')
                                 },
