@@ -339,6 +339,16 @@ def judging_page(request):
         mdl = models.contests.objects.all()
         return render(request, 'judging_page.html', {'contests': mdl})
 
+def give_users(request, name):
+    name = name.replace('_', ' ')
+    con = models.contests.objects.get(contest_name=name)
+    m = models.appiled_for.objects.filter(contest_mdl=con)
+    data = []
+    for i in m:
+        u = models.users_data.objects.get(id=i.i_id.id)
+        data.append([u.id, u.name])
+    data = json.dumps(data, indent=4, sort_keys=True, default=str)
+    return HttpResponse(data, content_type='application/json')
 
 def sloka(request):
     sl = models.sloka.objects.all()

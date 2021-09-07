@@ -18,6 +18,7 @@ from django.urls import path, re_path
 from contest_app import views
 
 urlpatterns = [
+    re_path(r'^give_users/(?P<name>\w+)/$', views.give_users, name='give_users'),
     path('match_answers/', views.match_answers, name='match_answers'),
     path('judging_page/', views.judging_page, name='judging_page'),
     re_path(r'^quiz_answers/(?P<user_id>\w+)/$', views.quiz_answers, name='quiz_answers'),
